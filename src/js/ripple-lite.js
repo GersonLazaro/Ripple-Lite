@@ -15,9 +15,9 @@ class Ripple {
 	}
 
 	init() {
-		let selected = document.querySelectedAll(".ripple");
+		let selected = document.querySelectorAll(".ripple");
 
-		for(i = 0; i < selected.length; i++){
+		for(var i = 0; i < selected.length; i++){
 			this.elements[i] = new RippleElement(selected[i]);
 		}
 	}

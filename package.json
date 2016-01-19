@@ -6,6 +6,9 @@
     "type": "git",
     "url": "git+https://github.com/GersonLazaro/Ripple-Lite.git"
   },
+  "babel": {
+    "presets": ["es2015"]
+  },
   "keywords": [
     "ripple",
     "waves",

@@ -5,7 +5,7 @@
 * @Licencia: MIT
 */
 
-.ripple:not(.ripple-block) { 
+.ripple:not(.ripple-img) { 
     background-color: #2196F3;
     border-radius: 2px; 
     border: none; 
@@ -23,6 +23,10 @@
 
 .ripple:hover, .ripple:active { 
     box-shadow: 0 4px 6px rgba(0,0,0,.4);
+}
+
+.ripple.ripple-img{
+    background-color: transparent;
 }
 
 .ripple.ripple-circle {
@@ -62,8 +66,9 @@
     transform: translate(-50%, -50%); 
         -webkit-transform: translate(-50%, -50%);
     width: 0;
+    z-index: 10;
 }
-.ripple-flat .ripple-effect{
+.rirple.ripple-flat .ripple-effect{
     background: rgba(33,150,243, 0.4);
 }
 .ripple-container.ripple-effect-animation .ripple-effect{

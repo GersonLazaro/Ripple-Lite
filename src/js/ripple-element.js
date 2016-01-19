@@ -7,6 +7,7 @@ class RippleElement {
 		this.container = new RippleContainer();
 		this.img = null;
 		this.init();
+		this.enableEffect();
 	}
 
 	init() {
@@ -30,7 +31,7 @@ class RippleElement {
 		  	this.img.className = this.img.className.replace(new RegExp('(^|\\b)' + "ripple".split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
 		}
     	this.domElement = document.createElement('div');
-        this.domElement.className="ripple ripple-block";
+        this.domElement.className="ripple ripple-img";
 
 
         let css = window.getComputedStyle(this.img);
@@ -59,5 +60,17 @@ class RippleElement {
     	}else { 
 		  new RegExp('(^| )' + className + '( |$)', 'gi').test(this.domElement.className);
     	}
+    }
+
+    enableEffect(){
+    	this.container.domElement.addEventListener("click", (e) => this.activateEffect(e));
+    }
+    activateEffect(e){
+    	this.container.effect.editPosition((e.pageX - this.domElement.offsetLeft),(e.pageY - this.domElement.offsetTop));
+    	this.container.initEffect('ripple-effect-animation');
+    	this.container.domElement.addEventListener('animationend', (e) => this.container.removeAnimation());
+		this.container.domElement.addEventListener('webkitAnimationEnd', (e) => this.container.removeAnimation());
+		this.container.domElement.addEventListener('oanimationend', (e) => this.container.removeAnimation());
+		this.container.domElement.addEventListener('MSAnimationEnd', (e) => this.container.removeAnimation());
     }
 }
